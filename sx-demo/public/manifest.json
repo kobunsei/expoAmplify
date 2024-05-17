@@ -1,0 +1,14 @@
+{
+    "name": "SX Demo",
+    "short_name": "Demo",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "A PWA app.",
+    "icons": [
+      {
+        "src": "/logo192.png",
+        "type": "image/png"
+      }
+    ]
+  }
