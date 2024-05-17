@@ -11,7 +11,7 @@ npm run start
 
 › Press s │ switch to development build
 › Press a │ open Android                │ Androidのバーチャルデバイスに動作する
-› Press i │ open IOS simulator          │ ブラウザに動作する
+› Press i │ open IOS simulator          │ IOSシミュレーターに動作する
 › Press w │ open web                    │ ブラウザに動作する
 › Press j │ open debugger
 › Press r │ reload app
