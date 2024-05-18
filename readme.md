@@ -26,7 +26,7 @@ npm run start
 npx expo export -p web
 ```
 
-### 3.2.デプロイ（検証用）
+### 3.2.デプロイ（PWA動作確認用）
 ```
 netlify deploy
 ```
@@ -37,7 +37,7 @@ netlify deploy
 npm run build:web
 ```
 
-### 4.2.デプロイ（検証用）
+### 4.2.デプロイ（PWA動作確認用）
 ```
 netlify deploy
 ```
@@ -49,5 +49,5 @@ curl -X POST -H "Authorization: key=AAAAxAflp3w:APA91bEGFBQGADTOW2Lcr5HQuEfeYrUa
  "title": "Test Message",
  "body": "I have corrected the settlement report. Please check the reasons.",
 },
-"to": "fC7Re72qIhvuQeIAX4QHeI:APA91bHKdTzUokq9MtQgTrq6aBF_CLMysBrzp68AqWjjx_KqHUB3XAYum9xQ088VYfIe5DMSFZfF0AzYKN06qH7ds4oUuQTD7abMjjD-GTtRWHaUWPG_YMWQfz63oEMbuZ9HGje-x8wD"
+"to": "fScHIEnetPyzTqqkbbjBGD:APA91bFg8CbG1SuZfw5Ae95Bu9KbIKE_sKLBGxTypO7VCSP7o-Vit2X3wM6pqUOXJ4fE1pxi0qQNfnF-2DFxsMOPrdPzFfZpTw6GPv_6s1jIAyW4dqVSfjxzfo6qvY-e61d1Z9Cz4HjC"
 }' "https://fcm.googleapis.com/fcm/send"

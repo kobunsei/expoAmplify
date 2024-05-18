@@ -12,7 +12,7 @@ const SigninScreen = () => {
   const router = useRouter();
   const signin = () => {
     login({ email: email, name: "", token: "" });
-    router.push("/");
+    router.replace('(top)/');
   };
 
   return (
