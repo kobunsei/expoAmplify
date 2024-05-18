@@ -3,25 +3,25 @@ import { PropsWithChildren, createContext, useContext, useState } from "react";
 
 type AuthType = {
   auth?: Auth,
-  login: (auth: Auth) => void;
-  logout: () => void;
+  signin: (auth: Auth) => void;
+  signout: () => void;
 }
 
 const AuthContext = createContext<AuthType>({
-  login: () => {},
-  logout: () => {},
+  signin: () => {},
+  signout: () => {},
 });
 
 const AuthProvider = ({ children }: PropsWithChildren) => {
   const [auth, setAuth] = useState<Auth>();
-  const login = (auth: Auth) => {
+  const signin = (auth: Auth) => {
     setAuth(auth);
   }
-  const logout = () => {
+  const signout = () => {
     setAuth(undefined);
   };
   return (
-    <AuthContext.Provider value={{ auth, login, logout }}>
+    <AuthContext.Provider value={{ auth, signin, signout }}>
       {children}
     </AuthContext.Provider>
   )

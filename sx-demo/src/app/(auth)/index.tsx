@@ -8,10 +8,10 @@ import { useAuth } from '@/providers/AuthProvider';
 const SigninScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth();
+  const { signin } = useAuth();
   const router = useRouter();
-  const signin = () => {
-    login({ email: email, name: "", token: "" });
+  const handleSignin = () => {
+    signin({ email: email, name: "", token: "" });
     router.replace('(top)/');
   };
 
@@ -36,7 +36,7 @@ const SigninScreen = () => {
         secureTextEntry
       />
 
-      <Button text="サインイン" onPress={signin} />
+      <Button text="サインイン" onPress={handleSignin} />
       <Link href="/sign-up" style={styles.textButton}>
         アカウントの作成
       </Link>

@@ -8,9 +8,8 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/components/useColorScheme';
 import AuthProvider from '@/providers/AuthProvider';
-import PushNotification from '@/components/PushNotification';
+import WebPushNotification from '@/components/WebPushNotification';
 import { ToastProvider } from 'react-native-toast-notifications'
-import { Platform } from 'react-native';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -55,13 +54,13 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <AuthProvider>
-        <ToastProvider>
+        <ToastProvider offset={50}>
           <Stack>
             <Stack.Screen name="index" options={{ headerShown: false }} />
             <Stack.Screen name="(top)" options={{ headerShown: false }} />
             <Stack.Screen name="(auth)" options={{ headerShown: false }} />
           </Stack>
-          {Platform.OS === 'web' ? <PushNotification/> : ""}
+          <WebPushNotification/>
         </ToastProvider>
       </AuthProvider>
     </ThemeProvider>

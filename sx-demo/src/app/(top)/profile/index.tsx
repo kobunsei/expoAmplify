@@ -1,8 +1,17 @@
 import Colors from '@/constants/Colors';
-import { Link } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
+import { useAuth } from '@/providers/AuthProvider';
+import { Link, useRouter } from 'expo-router';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 export default function ProfileScreen() {
+  const { signout } = useAuth();
+  const router = useRouter();
+
+  const handleSignout = () => {
+    signout();
+    router.replace('(auth)/');
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>名　前：    太郎</Text>
@@ -15,6 +24,9 @@ export default function ProfileScreen() {
       <Link href="(top)/profile/passwordChange" style={styles.textButton}>
         プロファイル変更
       </Link>
+      <Pressable onPress={handleSignout}>
+        <Text style={styles.textButton}>サインアウト</Text>
+      </Pressable>
     </View>
   );
 }

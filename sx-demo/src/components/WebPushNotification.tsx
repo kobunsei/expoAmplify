@@ -4,12 +4,16 @@ import { useAuth } from "@/providers/AuthProvider";
 import { VAPID_KEY } from "./firebase";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useToast } from "react-native-toast-notifications";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 
-const PushNotification = () => {
+const WebPushNotification = () => {
+  // web以外の場合利用できないためリターンする。
+  if (Platform.OS !== 'web') {
+    return <></>;
+  }
+
   const {auth} = useAuth();
   const toast = useToast();
-
   useEffect(() => {
     if( !auth ) {
       // リクエストトークンを試行
@@ -67,16 +71,16 @@ const PushNotification = () => {
   const observeMessage = async () => {
     onMessage(getMessaging(),(payload) => {
       toast.show(`${payload.notification?.title}\n\n${payload.notification?.body}`, {
-        type: 'success',
+        type: 'normal',
         placement: "bottom",
-        duration: 10000,
+        duration: 5000,
         animationType: "slide-in",
       });
       console.log("recive message end");
     })
   }
   
-  return <View />;
+  return <></>;
 };
 
-export default PushNotification;
+export default WebPushNotification;
