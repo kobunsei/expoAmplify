@@ -1,4 +1,7 @@
-const reports = [
+import dayjs from 'dayjs';
+const now = dayjs();
+
+export const reports = [
   {
     workingDate: '2024-05-13',
     reportStatus: '精査済み',
@@ -148,4 +151,30 @@ const reports = [
   },
 ];
 
-export default reports;
+export const notifications = [
+  {
+    time: now.subtract(1, 'hour').toISOString(),
+    title: '停電のお知らせ',
+    body: '2024/5/20(月)の21時から22時の間に、設備点検のため電停となります。',
+  },
+  {
+    time: now.subtract(1, 'days').toISOString(),
+    title: 'エレベーター利用不可のお知らせ',
+    body: '2024/5/28(火)の21時から22時の間に、設備点検のためエレベーターが利用不可となります。',
+  },
+  {
+    time: now.subtract(2, 'days').toISOString(),
+    title: '停電のお知らせ',
+    body: '2024/5/27(月)の21時から22時の間に、設備点検のため電停となります。',
+  },
+  {
+    time: now.subtract(4, 'days').toISOString(),
+    title: 'エレベーター利用不可のお知らせ',
+    body: '2024/5/30(木)の21時から22時の間に、設備点検のためエレベーターが利用不可となります。',
+  },
+  {
+    time: now.subtract(5, 'days').toISOString(),
+    title: '停電のお知らせ',
+    body: '2024/6/3(月)の21時から22時の間に、設備点検のため電停となります。',
+  },
+];

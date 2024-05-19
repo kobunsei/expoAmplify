@@ -39,6 +39,8 @@ export type Auth = {
 
 // 通知
 export type NotificationMessage = {
+  // 通知時刻
+  time: string;
   // 通知タイトル
   title?: string;
   // 通知本文

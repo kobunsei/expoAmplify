@@ -1,6 +1,6 @@
 import { View, Text, FlatList } from 'react-native'
 import React from 'react'
-import reports from '@assets/dummy/data'
+import {reports} from '@assets/dummy/data'
 import ItemOfReports from '@/components/ItemOfReports'
 
 export default function ReportsScreen() {

@@ -35,6 +35,14 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="notifications"
+        options={{
+          title: '通知',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <TabBarIcon name="info" color={color} />,
+        }}
+      />
+      <Tabs.Screen
         name="profile"
         options={{
           title: 'プロファイル',
