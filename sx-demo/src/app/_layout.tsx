@@ -10,6 +10,16 @@ import { useColorScheme } from '@/components/useColorScheme';
 import AuthProvider from '@/providers/AuthProvider';
 import WebPushNotification from '@/components/WebPushNotification';
 import { ToastProvider } from 'react-native-toast-notifications'
+import { Amplify } from 'aws-amplify';
+import awsconfig from '@/aws-exports';
+
+Amplify.configure(awsconfig);
+
+Amplify.configure({
+  Analytics: {
+    disabled: true
+  }
+});
 
 export {
   // Catch any errors thrown by the Layout component.

@@ -1,15 +1,18 @@
 import Colors from '@/constants/Colors';
-import { useAuth } from '@/providers/AuthProvider';
 import { Link, useRouter } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Auth } from 'aws-amplify';
 
 export default function ProfileScreen() {
-  const { signout } = useAuth();
   const router = useRouter();
 
-  const handleSignout = () => {
-    signout();
-    router.replace('(auth)/');
+  const handleSignout = async () => {
+    try {
+      await Auth.signOut();
+      router.replace('(auth)/');
+    } catch (error) {
+      console.error('ログアウトに失敗しました', error);
+    }
   };
 
   return (

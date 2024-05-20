@@ -14,12 +14,17 @@ const AuthContext = createContext<AuthType>({
 
 const AuthProvider = ({ children }: PropsWithChildren) => {
   const [auth, setAuth] = useState<Auth>();
+
   const signin = (auth: Auth) => {
+    console.log("Signin called with auth:", auth); // ログ出力追加
     setAuth(auth);
   }
+
   const signout = () => {
+    console.log("Signout called"); // ログ出力追加
     setAuth(undefined);
   };
+
   return (
     <AuthContext.Provider value={{ auth, signin, signout }}>
       {children}

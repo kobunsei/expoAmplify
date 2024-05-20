@@ -1,45 +1,50 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native';
-import React, { useState } from 'react';
-import Button from '@/components/Button';
-import Colors from '@/constants/Colors';
-import { Link, Stack, useRouter } from 'expo-router';
+import { View, Text, StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { useRouter } from 'expo-router';
 import { useAuth } from '@/providers/AuthProvider';
+import { Amplify, Auth } from 'aws-amplify';
+import { withAuthenticator } from 'aws-amplify-react-native';
+import awsconfig from '@/aws-exports';
+import { Auth as AuthType } from '@/types';
+
+Amplify.configure(awsconfig);
+
+Amplify.configure({
+  Analytics: {
+    disabled: true
+  }
+});
+
+type AmplifyUser = {
+  username: string;
+  attributes?: {
+    email?: string;
+    [key: string]: any;
+  };
+  [key: string]: any;
+};
 
 const SigninScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const { signin } = useAuth();
   const router = useRouter();
-  const handleSignin = () => {
-    signin({ email: email, name: "", token: "" });
-    router.replace('(top)/');
-  };
+  const { signin } = useAuth();
+
+  useEffect(() => {
+    Auth.currentAuthenticatedUser()
+      .then((user: AmplifyUser) => {
+        const authObject: AuthType = {
+          userId: user.username
+        };
+        signin(authObject);
+        router.replace('(top)/');
+      })
+      .catch(() => {
+        // ユーザーが認証されていない場合は何もしない
+      });
+  }, [router, signin]);
 
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: 'サインイン' }} />
-
-      <Text style={styles.label}>ユーザー名</Text>
-      <TextInput
-        value={email}
-        onChangeText={setEmail}
-        placeholder="taro@gmail.com"
-        style={styles.input}
-      />
-
-      <Text style={styles.label}>パスワード</Text>
-      <TextInput
-        value={password}
-        onChangeText={setPassword}
-        placeholder=""
-        style={styles.input}
-        secureTextEntry
-      />
-
-      <Button text="サインイン" onPress={handleSignin} />
-      <Link href="/sign-up" style={styles.textButton}>
-        アカウントの作成
-      </Link>
+      <Text>ログイン画面</Text>
     </View>
   );
 };
@@ -65,9 +70,9 @@ const styles = StyleSheet.create({
   textButton: {
     alignSelf: 'center',
     fontWeight: 'bold',
-    color: Colors.light.tint,
+    color: 'blue', // Colors.light.tint が undefined の場合
     marginVertical: 10,
   },
 });
 
-export default SigninScreen;
+export default withAuthenticator(SigninScreen);

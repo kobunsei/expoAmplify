@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, FlatList, Pressable } from 'react-native';
 import { Stack, useLocalSearchParams } from 'expo-router';
-import reports from '@assets/dummy/data';
+import { reports } from '@assets/dummy/data';
 import ItemOfCommerces from '@/components/ItemOfCommerces';
 import ItemOfReports from '@/components/ItemOfReports';
 

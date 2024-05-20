@@ -29,12 +29,14 @@ export type Commerce = {
 
 // ユーザデータ
 export type Auth = {
-  // メール
-  email: string;
-  // 名前
-  name: string;
+  // // メール
+  // email: string;
+  // // 名前
+  // name: string;
+  // ユーザーID
+  userId: string;
   // トークン
-  token: string;
+  // token: string;
 };
 
 // 通知
