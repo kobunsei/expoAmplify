@@ -33,16 +33,9 @@ export default function Root({ children }: { children: React.ReactNode }) {
 const responsiveBackground = `
 body {
   background-color: #fff;
-  padding-top: env(safe-area-inset-top);
-  padding-right: env(safe-area-inset-right);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  margin: 0;
-  box-sizing: border-box;
 }
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #000;
   }
-}
-`;
+}`;
