@@ -9,10 +9,10 @@ import { Platform, View } from "react-native";
 import { API } from 'aws-amplify';
 import { graphqlOperation } from 'aws-amplify';
 import { Amplify } from 'aws-amplify';
-import awsExports from '../aws-exports';
+import awsconfig from '@/aws-exports';
 import { createUserToken } from '../graphql/mutations';
 
-Amplify.configure(awsExports);
+Amplify.configure(awsconfig);
 
 const WebPushNotification = () => {
   if (Platform.OS !== 'web') {
