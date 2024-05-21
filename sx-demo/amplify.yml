@@ -1,0 +1,17 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd sx-demo
+        - npm install --legacy-peer-deps
+    build:
+      commands:
+        - npm run build:web
+  artifacts:
+    baseDirectory: sx-demo/dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
