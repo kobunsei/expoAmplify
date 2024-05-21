@@ -4,6 +4,7 @@ frontend:
     preBuild:
       commands:
         - cd sx-demo
+        - amplifyPush --simple
         - npm install
     build:
       commands:

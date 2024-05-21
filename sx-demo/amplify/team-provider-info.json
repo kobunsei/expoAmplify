@@ -19,5 +19,26 @@
         "expoamplifyapp": {}
       }
     }
+  },
+  "amplifyapp": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-expoamplifyapp-amplifyapp-bf375-authRole",
+      "UnauthRoleArn": "arn:aws:iam::825431201891:role/amplify-expoamplifyapp-amplifyapp-bf375-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::825431201891:role/amplify-expoamplifyapp-amplifyapp-bf375-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-expoamplifyapp-amplifyapp-bf375-deployment",
+      "UnauthRoleName": "amplify-expoamplifyapp-amplifyapp-bf375-unauthRole",
+      "StackName": "amplify-expoamplifyapp-amplifyapp-bf375",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:825431201891:stack/amplify-expoamplifyapp-amplifyapp-bf375/bc320f30-1729-11ef-8ab2-06d5d4d0c6b1",
+      "AmplifyAppId": "dy2kyron7rzpe"
+    },
+    "categories": {
+      "auth": {
+        "expoamplifyappb9553849": {}
+      },
+      "api": {
+        "expoamplifyapp": {}
+      }
+    }
   }
 }
